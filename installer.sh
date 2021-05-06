@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-USER=jmfayard
-REPO=kotlin-cli-starter
+USER=raychenon
+REPO=httpie.kt
 ## Clone the repo
 git clone https://github.com/$USER/$REPO.git --depth=1 || {
   echo >&2 "Clone failed with $?"
