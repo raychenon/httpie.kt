@@ -33,7 +33,7 @@ class HttpieCommand : CliktCommand(
     override fun run() {
     }
 
-    suspend fun doNetworkCall() {
+    suspend fun doNetworkCall(): String {
         buildHttpClient().use { client ->
             val subcommand: CliktCommand? = this.currentContext.invokedSubcommand
             val result = when(subcommand){
@@ -41,7 +41,7 @@ class HttpieCommand : CliktCommand(
                 is Post -> client.post<String>(subcommand.url!!)
                 else -> error("Unknown command $subcommand")
             }
-            println(result)
+            return result
         }
     }
 

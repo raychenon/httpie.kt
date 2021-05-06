@@ -13,6 +13,6 @@ suspend fun runHttPie(args: Array<String>) {
 
     command.main(args)
 
-    command.doNetworkCall()
+    println(command.doNetworkCall())
 
 }

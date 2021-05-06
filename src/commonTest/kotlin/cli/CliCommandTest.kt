@@ -7,8 +7,13 @@ class CliCommandTest {
 
 
     @Test
-    fun `fails`() {
-        fail("It does not work with magic, duh")
+    fun `get httpbin`() = runTest {
+        val command: HttpieCommand = HttpieCommand().subcommands(Get(), Post())
+        command.main(listOf("get", "--url", "http://httpbin.org/get"))
+
+        val response = command.doNetworkCall()
+        println(response)
+        assertTrue(response.contains("http://httpbin.org/get"))
     }
 
 }
