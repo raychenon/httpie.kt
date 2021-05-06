@@ -1,7 +1,10 @@
 package cli
 
+import com.github.ajalt.clikt.core.subcommands
 import kotlin.test.Test
-import kotlin.test.fail
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
+import io.runTest
 
 class CliCommandTest {
 
@@ -15,5 +18,4 @@ class CliCommandTest {
         println(response)
         assertTrue(response.contains("http://httpbin.org/get"))
     }
-
 }

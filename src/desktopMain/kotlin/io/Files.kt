@@ -1,7 +1,7 @@
 package io
 
 import java.io.File
-
+import kotlinx.coroutines.runBlocking
 
 actual fun readAllText(filePath: String): String =
     File(filePath).readText()
@@ -36,3 +36,5 @@ actual fun executeCommandAndCaptureOutput(
 actual fun findExecutable(executable: String): String =
     executeCommandAndCaptureOutput(listOf("which", executable), ExecuteCommandOptions(".", true, false, true))
 
+actual fun runTest(block: suspend () -> Unit): Unit =
+    runBlocking { block() }
