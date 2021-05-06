@@ -104,6 +104,8 @@ tasks.withType<Test> {
 }
 
 tasks.register<Copy>("install") {
+    group = "run"
+    description = "Build the native executable and install it"
     val destDir = "/usr/local/bin"
     dependsOn("runDebugExecutableNative")
     from("build/bin/native/debugExecutable") {
@@ -116,5 +118,7 @@ tasks.register<Copy>("install") {
 }
 
 tasks.register("runOnGitHub") {
+    group = "run"
+    description = "CI with Github Actions : .github/workflows/runOnGitHub.yml"
     dependsOn( "allTests", "linkDebugExecutableNative")
 }
