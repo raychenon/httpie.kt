@@ -9,6 +9,7 @@ plugins {
 
 group = "cli"
 version = "1.0-SNAPSHOT"
+val PROGRAM = "http"
 
 
 repositories {
@@ -106,11 +107,11 @@ tasks.register<Copy>("install") {
     val destDir = "/usr/local/bin"
     dependsOn("runDebugExecutableNative")
     from("build/bin/native/debugExecutable") {
-        rename { "git-standup" }
+        rename { PROGRAM }
     }
     into(destDir)
     doLast {
-        println("$ git-standup installed into $destDir")
+        println("$ $PROGRAM installed into $destDir")
     }
 }
 

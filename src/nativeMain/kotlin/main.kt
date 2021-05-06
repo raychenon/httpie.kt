@@ -1,8 +1,8 @@
-import cli.runGitStandup
+import cli.runHttPie
 import kotlinx.coroutines.runBlocking
 
 fun main(args: Array<String>) {
     runBlocking {
-        runGitStandup(args)
+        runHttPie(args)
     }
 }
